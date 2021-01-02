@@ -11,9 +11,9 @@ const UserSchema = new Schema({
         schoolName: { type: String },
         password: { type: String, required:true  },
       roles: { 
-        type: [String],
-        enum: ['student', 'teacher'],
-        default: ['student'] 
+        type: String,
+        enum: ['student', 'teacher','admin'],
+        default: 'student'
       },      
 }
 
