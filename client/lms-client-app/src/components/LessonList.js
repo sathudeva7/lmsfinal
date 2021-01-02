@@ -16,8 +16,8 @@ class LessonList extends Component{
         return(
             <Container>
               <ListGroup>
-                  {lessons.map(({id,name}) => (
-                      <ListGroupItem>{name}</ListGroupItem>
+                  {lessons.map(({id,lesson}) => (
+                      <ListGroupItem>{lesson}</ListGroupItem>
                   ))}
               </ListGroup>
             </Container>

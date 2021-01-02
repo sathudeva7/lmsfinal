@@ -11,7 +11,7 @@ const auth = require('../middleware/auth');
 
 
 lessonRouter.route('/lesson')
-.get(auth,isAdmin,(req,res,next) => {
+.get((req,res,next) => {
   Lesson.find({}).populate('teacherid')
     .then(lesson => res.json(lesson))
 })

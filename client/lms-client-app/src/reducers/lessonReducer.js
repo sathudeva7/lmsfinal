@@ -1,19 +1,23 @@
 import uuid from 'uuid';
-import {GET_LESSONS,ADD_LESSON,DELETE_LESSON } from '../actions/Types';
+import {GET_LESSONS,ADD_LESSON,DELETE_LESSON,LESSONS_LOADING } from '../actions/Types';
 const initialState = {
-  lessons:[
-        {id: uuid(), name:'Maths'},
-        {id:uuid(), name:'Science'},
-        {id:uuid(),name:'History'}
-    ]
+  lessons:[],
+  loading:false
 }
 
 export default function(state=initialState,action){
     switch(action.type){
         case GET_LESSONS:
             return {
-                ...state
+                ...state,
+                lessons:action.payload,
+                loading:false
             };
+        case LESSONS_LOADING:
+            return{
+                ...state,
+                loading:true
+            }
         default:
             return state;
     }
