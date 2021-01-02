@@ -14,8 +14,10 @@ const UserSchema = new Schema({
         type: [String],
         enum: ['student', 'teacher'],
         default: ['student'] 
-      },
-});
+      },      
+}
 
-module.exports = User = mongoose.model("user",UserSchema);
+);
+var User= mongoose.model("user",UserSchema);
 
+module.exports = User;

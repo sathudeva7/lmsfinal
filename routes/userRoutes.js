@@ -1,6 +1,8 @@
 const express = require('express');
+var mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const User = require('../models/user');
+require('../models/user');
+const User=mongoose.model('user')
 const bcrypt = require('bcrypt');
 const config = require('config');
 const jwt = require('jsonwebtoken');
