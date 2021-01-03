@@ -1,6 +1,6 @@
 import {USER_LOADED,USER_LOADING,AUTH_ERROR,LOGIN_FAIL,LOGIN_SUCCESS,LOGOUT_SUCCESS,REGISTER_FAIL,REGISTER_SUCCESS} from '../actions/Types';
 import axios from 'axios';
-
+import {returnErrors} from './errorActions'
 //check token and load user
 export const loadUser = () => (dispatch,getState) => {
     //user loading
@@ -12,6 +12,7 @@ export const loadUser = () => (dispatch,getState) => {
         payload:res.data
     }))
     .catch(err=> {
+        dispatch(returnErrors(err.response.data,err.response.status))
         dispatch({type:AUTH_ERROR});
     });
 };
@@ -33,10 +34,44 @@ export const register = ({firstname,lastname,grade,email,password,gender,schoolN
         payload:res.data
     }))
     .catch(err => {
+        dispatch(returnErrors(err.response.data,err.response.status,'REGISTER_FAIL'))
         dispatch({
             type:REGISTER_FAIL
         });
     })
+}
+
+
+//login
+export const login = ({email,password}) =>dispatch => {
+    //headers
+    const config = {
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    //request body
+    const body = JSON.stringify({email,password})
+
+    axios.post('http://localhost:5000/user/login',body,config)
+    .then(res => dispatch({
+        type:LOGIN_SUCCESS,
+        payload:res.data
+    }))
+    .catch(err => {
+        dispatch(returnErrors(err.response.data,err.response.status,'LOGIN_FAIL'))
+        dispatch({
+            type:LOGIN_FAIL
+        });
+    })
+}
+
+
+//logout
+export const logout = () => {
+    return{
+        type:LOGOUT_SUCCESS
+    }
 }
 
 

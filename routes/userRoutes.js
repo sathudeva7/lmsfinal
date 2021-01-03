@@ -26,7 +26,7 @@ userRouter.route('/register')
     if(!email|| !password || !firstname || !lastname || !grade || !schoolName  ){
         return res.status(400).json({msg:'Please enter all fields'});
     }
-
+    
     User.findOne({email})
     .then(user => {
         if(user) return res.status(400).json({msg:'User already exists'});
@@ -94,12 +94,15 @@ userRouter.route('/login')
 
 userRouter.route('/user')
 .get(auth,(req,res,next) => {
+   try{
     User.findById(req.user.id)
     .then((user) => {
         if(!user) throw Error('user does not exist');
         res.json(user);
-    },(err) => next(err))
-    .catch((err) => next(err))
+    })
+}catch(e){
+    res.status(400).json({msg:e.message})
+    }
 })
 
 

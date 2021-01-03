@@ -5,5 +5,6 @@ import errorReducer from './errorReducer';
 
 export default combineReducers({
     lesson:lessonReducer,
-    auth:authReducer
+    auth:authReducer,
+    error:errorReducer
 })
