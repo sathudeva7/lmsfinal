@@ -26,7 +26,8 @@ class LessonList extends Component{
 }
 LessonList.propTypes = {
     getLessons:PropTypes.func.isRequired,
-    lesson:PropTypes.object.isRequired
+    lesson:PropTypes.object.isRequired,
+    register:PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

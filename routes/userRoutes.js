@@ -6,6 +6,7 @@ const User=mongoose.model('user')
 const bcrypt = require('bcrypt');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 const userRouter = express.Router();
 userRouter.use(bodyParser.json());
 
@@ -90,5 +91,17 @@ userRouter.route('/login')
     },(err) => next(err))
     .catch((err) => next(err))
 })
+
+userRouter.route('/user')
+.get(auth,(req,res,next) => {
+    User.findById(req.user.id)
+    .then((user) => {
+        if(!user) throw Error('user does not exist');
+        res.json(user);
+    },(err) => next(err))
+    .catch((err) => next(err))
+})
+
+
 
 module.exports = userRouter;
