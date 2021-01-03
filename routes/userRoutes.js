@@ -79,12 +79,7 @@ userRouter.route('/login')
                 {expiresIn:3600},
                 (err,token) => {
                     if(err) throw err;
-                    res.json({token,user:{
-                        id:user.id,
-                        email:user.email,
-                        firstname:user.firstname,
-                        lastname:user.lastname
-                    }})
+                    res.json({token,user})
                 } )
         })
 
@@ -104,6 +99,7 @@ userRouter.route('/user')
     res.status(400).json({msg:e.message})
     }
 })
+
 
 
 

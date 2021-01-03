@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../../actions/authActions'
 import {clearErrors} from '../../actions/errorActions'
+
 class LoginModel extends Component {
     state = {
         modal: false,
@@ -19,6 +20,8 @@ class LoginModel extends Component {
         clearErrors:PropTypes.func.isRequired
     };
 
+   
+
     componentDidUpdate(prevProps){
         const {error,isAuthenticated} = this.props;
         if(error !== prevProps.error){
@@ -33,6 +36,7 @@ class LoginModel extends Component {
         if(this.state.modal){
             if(isAuthenticated){
                 this.toggle();
+                
             }
         }
     }
@@ -58,15 +62,14 @@ class LoginModel extends Component {
         //attempt to register
         this.props.login(user)
         
-        
       //  this.toggle()
-
+    
     }
 
     render(){
         return (
             <div>
-               <NavLink onClick={this.toggle} href="#">
+               <NavLink onClick={this.toggle} href="#" style={{fontSize:'1rem'}}>
                    Login
                </NavLink>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -96,8 +99,7 @@ class LoginModel extends Component {
                            
                             <Button color='dark' 
                                 style={{marginTop:'2rem'}}
-                                block>
-                                    Login
+                                block>Login
                                 </Button>
                         </FormGroup>
                     </Form>

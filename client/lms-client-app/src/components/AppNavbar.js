@@ -9,11 +9,13 @@ import {
     NavLink,
     Container
 } from 'reactstrap';
+
 import RegisterModel from './auth/RegisterModel'
 import Logout from './auth/Logout'
 import LoginModel from './auth/LoginModel'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 class AppNavbar extends Component {
     state = {
         isOpen:false
@@ -35,7 +37,7 @@ class AppNavbar extends Component {
             <>
             <NavItem>
                 <span className="navbar-text mr-3">
-                    <strong>{user ? ` ${user.firstname}`:""}</strong>
+                    <strong style={{fontSize:'1rem'}}>{ user ? ` ${user.firstname}`:""}</strong>
                 </span>
             </NavItem>
             <NavItem>
@@ -46,6 +48,7 @@ class AppNavbar extends Component {
         const guestLinks = (
             <>
             <NavItem>
+                                
                                     <RegisterModel />
                                 
                             </NavItem>
@@ -56,9 +59,9 @@ class AppNavbar extends Component {
         );
 
        return ( <div>
-            <Navbar color="dark" dark expand="sm" className="mb-5">
+            <Navbar color="blue" dark expand="sm" className="mb-5">
                 <Container>
-                    <NavbarBrand href="/">eTution</NavbarBrand>
+                    <NavbarBrand href="/" style={{fontFamily:"Lobster", fontSize:'3rem'}}>eTution</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>

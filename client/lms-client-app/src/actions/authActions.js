@@ -1,6 +1,7 @@
 import {USER_LOADED,USER_LOADING,AUTH_ERROR,LOGIN_FAIL,LOGIN_SUCCESS,LOGOUT_SUCCESS,REGISTER_FAIL,REGISTER_SUCCESS} from '../actions/Types';
 import axios from 'axios';
 import {returnErrors} from './errorActions'
+
 //check token and load user
 export const loadUser = () => (dispatch,getState) => {
     //user loading
@@ -64,6 +65,8 @@ export const login = ({email,password}) =>dispatch => {
             type:LOGIN_FAIL
         });
     })
+   
+
 }
 
 
