@@ -18,7 +18,7 @@ export class UserModel extends Component {
                     <CardBody>
                         
                             <>
-                            
+                            <CardImg src={user.img}/>
                             <CardTitle tag="h5">{user.firstname}</CardTitle>
                             <CardSubtitle tag="h6" className="mb-2 text-muted">{user.lastname}</CardSubtitle>
                             </>

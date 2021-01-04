@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost:27017/lms', {useNewUrlParser: true}, () =>
 const app = express();
 
 app.use(bodyParser.json());
+
 app.use(cors())
 app.use('/user', userRouter);
 app.use('/lessons',lessonRouter);

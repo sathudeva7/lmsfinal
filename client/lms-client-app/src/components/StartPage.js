@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight:'100vh',
         backgroundImage:`url(${c})`,
         backgroundRepeat:"no-repeat",
-       
-        
+              
     },
    
 }))
@@ -23,9 +22,9 @@ const classes = useStyles();
       <>
      
     <div className={classes.root}>
-        <AppNavbar />
-        <UserModel/>
-     <Cardedit />
+        
+      
+  <Cardedit />
      
       <CssBaseline />
       

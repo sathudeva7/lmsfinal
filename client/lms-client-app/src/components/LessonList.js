@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {getLessons} from '../actions/lessonActions'
 import PropTypes from 'prop-types';
 import CourseDetail from './CourseDetail' 
-
+import {Link} from 'react-router-dom'
 class LessonList extends Component{
 
     constructor(props){
@@ -29,7 +29,10 @@ class LessonList extends Component{
     renderCourse(lesson){
         if(lesson != null){
             return(
+                
+              
                 <CourseDetail course={lesson} />
+             
             );
         }
         else{
@@ -50,7 +53,7 @@ class LessonList extends Component{
                             <CardImg width="50px" src={a11} alt="Card image cap" />
                             <CardTitle tag="h5">{lesson.lesson}</CardTitle>
                             <CardSubtitle tag="h6" className="mb-2 text-muted">grade: {lesson.grade}</CardSubtitle>
-                            <Button onClick={() => this.onCourseSelect(lesson)}>View</Button>
+                            <Link to={`/lesson/${lesson._id}`}> <Button onClick={() => this.onCourseSelect(lesson)}>View</Button></Link>
                             </div>
                         ))}
                     </CardBody>

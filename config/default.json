@@ -1,3 +1,6 @@
 {
-    "jwtSecret":"abcd1234"
+    "jwtSecret":"abcd1234",
+    "secretAccessKey":"RQm/9n92pdES94z/I3t5JS0ehjE+XiIDErtDleBy",
+    "accessKeyId":"ASIAQL2AHRUW3UY7PW3Z",
+    "sessionToken":"FwoGZXIvYXdzEE0aDHFr+jHeAgrOBlafByLAAU2oIlnzVmy+vHdiOyvn+hRohH8vxfwIMuHyu+8tZ69BQk/m3VjlE0OpzpOiRne95D+M9ea5K7L2GSl1ceq4UfFV3M4BlZwsd6VQCexZJbHDbZARgmA1yKkF/sK0nmcowaSloP4VNNr+6FOXvFCyvMsh9AEgZL/VqsAjNveZuNF379Sw0YqJ4S1L7hOajAhBcCY24YmT1YGtXvprHgtxBrx3iL3oscYFsg29BlHdRJm7GJN7Rq6Fku/sBPX0IZY5MCiF2s3/BTItUMRkn3p02AF4Ql+DXS6Xz8vPjf863XgYN2TRGPwF+S4gLEVBjaMh+u8Arlya"
 }
