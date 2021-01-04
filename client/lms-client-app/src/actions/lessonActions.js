@@ -1,8 +1,9 @@
 import {GET_LESSONS,ADD_LESSON,DELETE_LESSON,LESSONS_LOADING } from '../actions/Types';
 import axios from 'axios';
-export const getLessons = () => dispatch => {
+import {tokenConfig} from './authActions'
+export const getLessons = () => (dispatch,getState) => {
     dispatch(setLessonsLoading());
-    axios.get('http://localhost:5000/lessons/lesson')
+    axios.get('http://localhost:5000/lessons/lesson',tokenConfig(getState))
     .then(res => 
         dispatch({
             type:GET_LESSONS,

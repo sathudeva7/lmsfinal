@@ -5,10 +5,14 @@ const LessonSchema = new Schema({
     
         lesson: { type: String, required: true },
         grade: { type: String, required: true },
-        studentid:[{
+        students:[{
+                studentid:{
                 type:Schema.Types.ObjectId,
                 ref:'user'
-              }],
+         },
+        isVerified:{type:Boolean, default:false}
+        
+         } ],
         teacherid:{
                 type:Schema.Types.ObjectId,
                 ref:'user'

@@ -9,7 +9,7 @@ function isAdmin(req,res,next){
     try{
     User.findOne({_id:user.id})
     .then((user) => {
-        if(user.firstname==='sathu'){
+        if(user.roles==='teacher'){
             next();
         }else{
             err = new Error('You are not authorized to perform this operation!');
