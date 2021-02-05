@@ -23,7 +23,6 @@ const fileFilter = (req,file,cb) => {
 
 
 var upload = multer({
-  fileFilter:fileFilter,
   storage: multerS3({
     s3: s3,
     bucket: 'lms-avatar',

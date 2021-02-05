@@ -4,9 +4,12 @@ require('../models/lesson');
 const Lesson = mongoose.model('lesson')
 require('../models/user');
 const User=mongoose.model('user')
+require('../models/assignments');
+const Assignment = mongoose.model('assignment');
 const isAdmin = require('../middleware/isAdmin')
 const lessonRouter = express.Router();
 const config = require('config');
+const upload = require('../services/upload')
 const auth = require('../middleware/auth');
 
 
@@ -39,6 +42,36 @@ lessonRouter.route('/lesson/:lessonId/addstudent')
     })
 })
 
+const singleUpload = upload.single('image');
+
+lessonRouter.route('/lesson/:lessonId/addassignment')
+.post(auth,(request,response,next) => {
+    const assignment = request.body.assignment
+    const duedate = request.body.duedate;
+    
+    singleUpload(req,res, function(err){
+        if(err) return res.json(err)
+        const newAssignment = new Assignment({
+            assignment,
+            duedate,
+           
+        })
+    
+        newAssignment.save().then(
+            (lesson) => {
+                Lesson.findByIdAndUpdate({_id:request.params.lessonId},{
+                    $push:{assignments:{assignmentid:lesson._id}}
+                },{new:true}).exec(function(err,result){
+                    if(err) return response.status(400).json({msg:'Cant added'});
+                    return response.status(200).json(result)
+                })
+               
+            },
+            
+        )
+    })
+    
+})
 
 
 module.exports = lessonRouter;

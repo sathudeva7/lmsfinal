@@ -16,7 +16,13 @@ const LessonSchema = new Schema({
         teacherid:{
                 type:Schema.Types.ObjectId,
                 ref:'user'
-        }
+        },
+        assignemnts:[{
+                assignmentid:{
+                        type:Schema.Types.ObjectId,
+                        ref:'assignment'
+                }
+        }]
 },
 {timestamps:true}
 
