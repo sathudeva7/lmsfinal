@@ -4,9 +4,16 @@ import {Card, CardImg, CardText, CardBody,
 import a11 from '../assets/a11.png'
 import {connect} from 'react-redux';
 import {getLessons} from '../actions/lessonActions'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+  } from "react-router-dom";
 import PropTypes from 'prop-types';
 import CourseDetail from './CourseDetail' 
-import {Link} from 'react-router-dom'
+
 class LessonList extends Component{
 
     constructor(props){
@@ -14,6 +21,7 @@ class LessonList extends Component{
         this.state = {
             selectedCourse: null
         }
+    
     }
 
     onCourseSelect(lesson){
@@ -22,8 +30,12 @@ class LessonList extends Component{
 
 
     componentDidMount(){
+       
         this.props.getLessons();
+
     }
+
+
 
 
     renderCourse(lesson){
@@ -53,7 +65,12 @@ class LessonList extends Component{
                             <CardImg width="50px" src={a11} alt="Card image cap" />
                             <CardTitle tag="h5">{lesson.lesson}</CardTitle>
                             <CardSubtitle tag="h6" className="mb-2 text-muted">grade: {lesson.grade}</CardSubtitle>
+                            <Router>
+
+
+                            
                             <Link to={`/lesson/${lesson._id}`}> <Button onClick={() => this.onCourseSelect(lesson)}>View</Button></Link>
+                            </Router>
                             </div>
                         ))}
                     </CardBody>

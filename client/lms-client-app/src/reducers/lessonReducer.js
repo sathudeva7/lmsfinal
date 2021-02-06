@@ -18,6 +18,12 @@ export default function(state=initialState,action){
                 ...state,
                 loading:true
             }
+        case ADD_LESSON:
+                return{
+                    ...state,
+                    lessons:action.payload,
+                    loading:false   
+                }
         default:
             return state;
     }

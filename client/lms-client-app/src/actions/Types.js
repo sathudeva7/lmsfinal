@@ -2,6 +2,7 @@ export const GET_LESSONS = 'GET_LESSONS';
 export const ADD_LESSON = 'ADD_LESSON';
 export const DELETE_LESSON = 'DELETE_LESSON';
 export const LESSONS_LOADING = 'LESSONS_LOADING';
+export const LESSON_FAIL='LESSON_FAIL';
 
 export const USER_LOADING='USER_LOADING';
 export const USER_LOADED='USER_LOADED';

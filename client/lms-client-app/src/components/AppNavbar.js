@@ -13,6 +13,7 @@ import {
 import RegisterModel from './auth/RegisterModel'
 import Logout from './auth/Logout'
 import LoginModel from './auth/LoginModel'
+import CreateLesson from './CreateLesson'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -42,6 +43,9 @@ class AppNavbar extends Component {
             </NavItem>
             <NavItem>
                                 <Logout />
+                            </NavItem>
+                            <NavItem>
+                                <CreateLesson />
                             </NavItem>
             </>
         );
